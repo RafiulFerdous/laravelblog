@@ -40,4 +40,13 @@ Route::get('/post', function () {
 });
 
 
+//admin
+
+
+Route::get('/admin', function () {
+    return view('admin.admin_home');
+});
+
+
+
 
