@@ -51,6 +51,7 @@ Route::get('/admin', function () {
 Route::resource('/category', CategoryController::class);
 Route::get('/category.create', [CategoryController::class, 'create']);
 Route::post('/category.store', [CategoryController::class, 'store']);
+Route::get('/category.edit{id}', [CategoryController::class, 'edit']);
 
 
 

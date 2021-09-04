@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.category');
+        $categories = Category::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.category.category', compact('categories'));
     }
 
     /**
@@ -51,7 +52,7 @@ class CategoryController extends Controller
             'description'=>$request->description,
         ]);
 
-        Session::flush('success','Category created successfully');
+        Session::flash('success','Category created successfully');
         return redirect()->back();
     }
 
@@ -74,7 +75,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
@@ -86,7 +87,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+         //validation
+         $validated = $request->validate([
+            'name' => "required|unique:categories,name,$category->name",
+            
+        ]);
+
+        //store
+
+        $category ->name= $request->name;
+        $category ->slug=$slug = Str::of('$request->name')->slug('-');
+        $category ->description=$request->description;
+        $category->save();
+        
+
+        Session::flash('success','Category updated successfully');
+        return redirect()->back();
     }
 
     /**
