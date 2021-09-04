@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.category.category');
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -35,7 +37,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $validated = $request->validate([
+            'name' => 'required|unique:categories',
+            
+        ]);
+
+        //store
+
+        $category = Category::create([
+            'name'=> $request->name,
+            'slug'=>$slug = Str::of('$request->name')->slug('-'),
+            'description'=>$request->description,
+        ]);
+
+        Session::flush('success','Category created successfully');
+        return redirect()->back();
     }
 
     /**

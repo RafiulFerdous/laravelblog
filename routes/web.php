@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,13 @@ Route::get('/post', function () {
 
 
 Route::get('/admin', function () {
-    return view('admin.admin_home');
+    return view('admin.index');
 });
+
+Route::resource('/category', CategoryController::class);
+Route::get('/category.create', [CategoryController::class, 'create']);
+Route::post('/category.store', [CategoryController::class, 'store']);
+
 
 
 
