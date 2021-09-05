@@ -19,7 +19,7 @@
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Tag Table</h6>
-            <a href="/category.create" class="btn btn-primary">Create Tag</a>
+            <a href="{{route('tag.create')}}" class="btn btn-primary">Create Tag</a>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -34,11 +34,11 @@
               </thead>
               <tbody>
                 @if ($tags->count())
-                    
-               
+
+
                 @foreach ($tags as $tag)
-                    
-                
+
+
                 <tr>
                   <td><a href="#">{{$tag->id}}</a></td>
                   <td>{{$tag->name}}</td>
@@ -53,8 +53,8 @@
 
                       <a class="dropdown-item" href="#">Delete</a>
                       <a class="dropdown-item" href="#">View</a>
-                      
-                     
+
+
                     </div>
                   </div>
                 </td>
@@ -67,8 +67,8 @@
 
                 </tr>
                 @endforeach
-                
-                    
+
+
                 @else
                 <tr>
                   <td colspan="5">
@@ -76,10 +76,10 @@
 
                   </td>
                 </tr>
-                    
+
                 @endif
-               
-                
+
+
               </tbody>
             </table>
           </div>
