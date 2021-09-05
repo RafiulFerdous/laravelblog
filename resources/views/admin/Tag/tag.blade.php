@@ -1,11 +1,11 @@
 @extends('layouts.admin_layouts')
 
-@section('title','Category')
+@section('title','Tag')
 @section('admin_content')
 
 <div class="container-fluid" id="container-wrapper">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Categories</h1>
+      <h1 class="h3 mb-0 text-gray-800">Tag</h1>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item">Tables</li>
@@ -18,8 +18,8 @@
         <!-- Simple Tables -->
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Category Table</h6>
-            <a href="/category.create" class="btn btn-primary">Create Category</a>
+            <h6 class="m-0 font-weight-bold text-primary">Tag Table</h6>
+            <a href="/category.create" class="btn btn-primary">Create Tag</a>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -33,22 +33,23 @@
                 </tr>
               </thead>
               <tbody>
-
-                @if ($categories->count())
-                @foreach ($categories as $category)
+                @if ($tags->count())
+                    
+               
+                @foreach ($tags as $tag)
                     
                 
                 <tr>
-                  <td><a href="#">{{$category->id}}</a></td>
-                  <td>{{$category->name}}</td>
-                  <td>{{$category->slug}}</td>
+                  <td><a href="#">{{$tag->id}}</a></td>
+                  <td>{{$tag->name}}</td>
+                  <td>{{$tag->slug}}</td>
                   <td><span class="badge badge-success">Delivered</span></td>
                   <td><div class="btn-group mb-1">
                     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Info
                     </button>
                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                      <a class="dropdown-item" href="{{route('category.edit', [$category->id])}}">Edit</a>
+                      <a class="dropdown-item" href="{{route('tag.edit', [$tag->id])}}">Edit</a>
 
                       <a class="dropdown-item" href="#">Delete</a>
                       <a class="dropdown-item" href="#">View</a>
@@ -59,18 +60,19 @@
                 </td>
 
                  <!--<td class="d-flex">
-                  <a href="{{route('category.edit', [$category->id])}}" class="btn btn sm primary mr-1"><i class="fas fa-edit"></i></a>
+                  <a href="{{route('tag.edit', [$tag->id])}}" class="btn btn sm primary mr-1"><i class="fas fa-edit"></i></a>
 
                 </td>
                 -->
 
                 </tr>
                 @endforeach
-
+                
+                    
                 @else
                 <tr>
                   <td colspan="5">
-                    <h5 class="text-center">No category found</h5>
+                    <h5 class="text-center">No tag found</h5>
 
                   </td>
                 </tr>

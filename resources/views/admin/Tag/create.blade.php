@@ -18,8 +18,8 @@
         <!-- Simple Tables -->
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Category -{{ $category->name}}</h6>
-            <a href="/category" class="btn btn-primary">Category List</a>
+            <h6 class="m-0 font-weight-bold text-primary">Create Category </h6>
+            <a href="category" class="btn btn-primary">Category List</a>
           </div>
           <div class="card mb-4">
            <!-- <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -30,13 +30,12 @@
 
 
 
-              <form action="{{route('category.update', [$category->id])}}" method="POST">
+              <form action="category.store" method="POST">
                 @csrf
-                @method('put')
                 <div class="form-group">
                   @include('includes.errors')
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" name="name"class="form-control" id="name" value="{{$category->name}}" placeholder="Enter category name">
+                  <input type="text" name="name"class="form-control" id="name"  placeholder="Enter category name">
                   <!--<small id="emailHelp" class="form-text text-muted">We'll never share your
                     email with anyone else.</small>
                     -->
@@ -44,7 +43,7 @@
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category description</label>
-                  <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter description here">{{$category->description}}</textarea>
+                  <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter description here"></textarea>
                   
                 </div>
               
@@ -63,7 +62,7 @@
                 </div>
                 -->
                 
-                <button type="submit" class="btn btn-primary">Update Category</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
 
 

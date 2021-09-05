@@ -45,6 +45,7 @@ class CategoryController extends Controller
         ]);
 
         //store
+        
 
         $category = Category::create([
             'name'=> $request->name,
@@ -102,7 +103,7 @@ class CategoryController extends Controller
         
 
         Session::flash('success','Category updated successfully');
-        return redirect()->back();
+        return redirect('/category');
     }
 
     /**

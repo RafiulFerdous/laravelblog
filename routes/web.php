@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,17 +42,21 @@ Route::get('/post', function () {
 });
 
 
-//admin
+//admin route
 
 
 Route::get('/admin', function () {
     return view('admin.index');
 });
-
+//CAtegory routes
 Route::resource('/category', CategoryController::class);
 Route::get('/category.create', [CategoryController::class, 'create']);
 Route::post('/category.store', [CategoryController::class, 'store']);
 Route::get('/category.edit{id}', [CategoryController::class, 'edit']);
+
+//Tag routes
+Route::resource('/tag', TagController::class);
+
 
 
 
