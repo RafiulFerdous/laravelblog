@@ -8,13 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-
-    protected $guard =['creat_at', 'delet_at','update_at',];
+    protected $guard =['creat_at','update_at',];
 
     protected $fillable = [
-        'name',
+        'title',
         'slug',
+        'image',
         'description',
+        'category_id',
+        'user_id',
+        'published_at',
+
     ];
-}
+
+    protected $dates =[
+        'published_at',
+    ];
 }

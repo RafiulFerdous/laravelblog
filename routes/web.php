@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,10 @@ Route::get('/category.edit{id}', [CategoryController::class, 'edit']);
 
 //Tag routes
 Route::resource('/tag', TagController::class);
+
+//post route here
+
+Route::resource('/post', PostController::class);
 
 
 

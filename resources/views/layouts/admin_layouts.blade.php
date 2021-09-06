@@ -92,13 +92,21 @@
       <div class="sidebar-heading">
         Examples
       </div>
-      
+
       <li class="nav-item">
         <a class="nav-link" href="/category">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Category</span>
         </a>
       </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('post.index')}}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Post</span>
+            </a>
+        </li>
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('tag.index')}}">
@@ -335,11 +343,11 @@
   <script src="{{asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
   <script src="{{asset('backend/js/ruang-admin.min.js')}}"></script>
   <script src="{{asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
-  <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>  
+  <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <script>
-  
+
     @if(Session::has('success'))
     toastr.success("{{Session::get('success')}}");
     @endif
