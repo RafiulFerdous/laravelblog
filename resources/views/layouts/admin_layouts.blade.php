@@ -14,6 +14,7 @@
   <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    @yield('style')
 </head>
 
 <body id="page-top">
@@ -346,6 +347,7 @@
   <script src="{{asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
   <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      @yield('script')
 
   <script>
 

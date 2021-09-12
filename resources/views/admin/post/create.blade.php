@@ -141,3 +141,20 @@
 
 
 @endsection
+
+@section('style')
+    <link href="{{asset('backend/css/summernote-bs4.css')}}" rel="stylesheet">
+@endsection
+
+@section('script')
+    <script src="{{asset('backend/js/summernote-bs4.js')}}"></script>
+
+    <script>
+        $('#description').summernote({
+            placeholder: 'Hello Bootstrap 4',
+            tabsize: 2,
+            height: 100
+        });
+    </script>
+
+@endsection
