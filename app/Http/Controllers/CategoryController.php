@@ -41,15 +41,15 @@ class CategoryController extends Controller
         //validation
         $validated = $request->validate([
             'name' => 'required|unique:categories',
-            
+
         ]);
 
         //store
-        
+
 
         $category = Category::create([
             'name'=> $request->name,
-            'slug'=>$slug = Str::of('$request->name')->slug('-'),
+            'slug'=>Str::of('$request->name')->slug('-'),
             'description'=>$request->description,
         ]);
 
@@ -91,7 +91,7 @@ class CategoryController extends Controller
          //validation
          $validated = $request->validate([
             'name' => "required|unique:categories,name,$category->name",
-            
+
         ]);
 
         //store
@@ -100,7 +100,7 @@ class CategoryController extends Controller
         $category ->slug=$slug = Str::of('$request->name')->slug('-');
         $category ->description=$request->description;
         $category->save();
-        
+
 
         Session::flash('success','Category updated successfully');
         return redirect('/category');

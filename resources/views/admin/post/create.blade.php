@@ -69,14 +69,17 @@
 
                   <div class="form-group">
                       <label>Select Tags</label>
+
+                      <div class="d-flex flex" >
                       @foreach($tags as $tag)
 
 
-                      <div class="custom-control custom-checkbox">
+                      <div class="custom-control custom-checkbox" style="margin-right: 20px">
                           <input type="checkbox" name="tags[]" type="checkbox" class="custom-control-input" id="tag{{$tag->id}}" value="{{$tag->id}}">
                           <label for="tag{{$tag->id}}" class="custom-control-label" >{{$tag->name}}</label>
                       </div>
                       @endforeach
+                      </div>
 
                   </div>
 
